@@ -1,0 +1,63 @@
+<?xml  version="1.0"  encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/aop">
+
+    <!--将共有的抽象出来-->
+    <bean  id="ab" abstract="true">
+        <property name="id" value="1"/>
+    </bean>
+    <bean id="user" class="com.lei.entity.User" parent="ab">
+
+        <property name="name" value="张三"/>
+        <property name="age" value="11"/>
+        <property name="address" value="北京"/>
+        <property name="grade" ref="grade"/>
+    </bean>
+    <bean id="grade" class="com.lei.entity.Grade" parent="ab">
+        <property name="math" value="90"/>
+        <property name="English" value="95"/>
+    </bean>
+
+
+    <!--对象之间的继承-->
+    <bean id="user1" class="com.lei.entity.User" parent="user">
+
+        <property name="id" value="2"/>
+        <property name="name" value="LUCY"/>
+        <property name="age" value="12"/>
+        <property name="address" value="北京"/>
+        <property name="grade" ref="grade1"/>
+    </bean>
+    <bean id="grade1" class="com.lei.entity.Grade">
+        <property name="id" value="2"/>
+        <property name="math" value="92"/>
+        <property name="English" value="93"/>
+    </bean>
+
+
+
+
+    <bean id="grade2" class="com.lei.entity.Grade">
+      <constructor-arg name="id" value="3"/>
+      <constructor-arg name="math" value="89"/>
+      <constructor-arg name="English" value="89"/>
+    </bean>
+    <bean id="grade3" class="com.lei.entity.Grade">
+        <constructor-arg index="0" value="4"/>
+        <constructor-arg index="1" value="88"/>
+        <constructor-arg index="2" value="98"/>
+    </bean>
+    <bean id="grade4" class="com.lei.entity.Grade">
+        <constructor-arg  value="5"/>
+        <constructor-arg  value="88"/>
+        <constructor-arg  value="98"/>
+    </bean>
+</beans>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<h1>hello world</h1>-->
+
+
+<!--index-->
+<table>
+    <tr>
+        <td>index</td>
+        <td>count</td>
+        <td>学生ID</td>
+        <td>学生姓名</td>
+        <td>学生年龄</td>
+    </tr>
+    <tr th:each="student,stat:${list}" th:style="'background-color:'+@{${stat.odd}?'#F2F2F2'}">
+        <td th:text="${stat.index}"></td>
+        <td th:text="${stat.count}"></td>
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}"></td>
+    </tr>
+</table>
+
+
+<!--index2-->
+
+
+<!--<p th:text="${name}"></p>
+<p th:text="'学生姓名是'+${name}+2"></p>
+<p th:text="|学生姓名是,${name}|"></p>-->
+
+
+<!--index3-->
+<!--
+<p th:if="${flag}==true" th:text="if判断成立"></p>
+<p th:unless="${flag}!=true" th:text="unless判断成立"></p>
+-->
+
+</body>
+</html>
