@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/student/findAll}">
+    id  : <input th:text="id" th:value="${student.id}" readonly/><br>
+    name:<input th:text="name" th:value="${student.name}" readonly/><br>
+    age :<input th:text="age" th:value="${student.age}" readonly/><br>
+    <input th:type="submit" th:value="返回">
+</form>
+
+</body>
+</html>

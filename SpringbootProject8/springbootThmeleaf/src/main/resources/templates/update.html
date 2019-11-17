@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/student/update}">
+    id  : <input th:name="id" th:value="${student.id}" readonly/><br>
+    name:<input th:name="name" th:value="${student.name}"/><br>
+    age :<input th:name="age" th:value="${student.age}"/><br>
+
+  <input th:type="submit" th:value="更新"/>
+</form>
+
+
+</body>
+</html>
