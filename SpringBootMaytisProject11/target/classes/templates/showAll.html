@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/userService/findById}">
+    <!--<form th:action="@{/user/findById}">-->
+        id:<input th:name="id"/>
+        <input th:type="submit" th:value=" 查找"/>
+    </form>
+    <br/>
+  <form th:action="@{/userService/insert}">
+    <!--<form th:action="@{/user/insert}">-->
+        id:<input th:name="id"/>
+        name:<input th:name="name"/>
+        score:<input th:name="score"/>
+        <input th:type="submit" th:value=" 添加"/>
+    </form>
+    <table>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>score</td>
+        <td>操作</td>
+    </tr>
+    <tr th:each="user:${collection}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.score}"></td>
+        <td>
+            <!--<a th:href="@{http://localhost:8080/user/deleteById/{na}(na=${user.id})}">删除</a>
+            <a th:href="@{http://localhost:8080/user/findById/{nam}(nam=${user.id})}">更新</a>-->
+            <a th:href="@{http://localhost:8080/userService/deleteById/{na}(na=${user.id})}">删除</a>
+            <a th:href="@{http://localhost:8080/userService/findById/{nam}(nam=${user.id})}">更新</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

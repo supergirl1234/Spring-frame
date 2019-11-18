@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/userService/update}">
+<!--<form th:action="@{/user/update}">-->
+    id:<input th:name="id" th:value="${user.id}" readonly/><br/>
+    name:<input th:name="name" th:value="${user.name}"/><br/>
+    score:<input th:name="score" th:value="${user.score}"/><br/>
+    <input th:type="submit" th:value="更新"/>
+</form>
+
+
+</body>
+</html>
