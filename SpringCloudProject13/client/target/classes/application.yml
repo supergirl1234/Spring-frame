@@ -1,0 +1,25 @@
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1234/eureka/
+  instance:
+    prefer-ip-address: true  #是否将当前服务的ip注册到Eureka Server
+spring:
+  application:
+    name: provider
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_mybatis?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: mysql0205
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix:  .html
+    mode: HTML
+    encoding: UTF-8
+mybatis:
+  mapper-locations: classpath:/*.xml
+
+

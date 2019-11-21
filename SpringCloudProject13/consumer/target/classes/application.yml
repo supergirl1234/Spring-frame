@@ -1,0 +1,11 @@
+server:
+  port: 6000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1234/eureka/
+      instance:
+          prefer-ip-address: true
+spring:
+  application:
+    name: consumer

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <form th:action="@{/student/findById}">
+        id：<input th:name="id"/>
+        <input th:type="submit" th:value="查找"/>
+    </form>
+    <br/>
+    <form th:action="@{/student/insert}">
+        id：<input th:name="id"/>
+        name：<input th:name="name"/>
+        score：<input th:name="score"/>
+        birthday：<input th:name="birthday"/>(YYYY-MM-DD格式)
+        <input th:type="submit" th:value="添加"/>
+    </form>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>score</td>
+        <td>birthday</td>
+        <td>操作</td>
+
+    </tr>
+    <tr th:each="student:${collection}">
+        <td  th:text="${student.id}"></td>
+        <td  th:text="${student.name}"></td>
+        <td  th:text="${student.score}"></td>
+        <td  th:text="${#dates.format(student.birthday,'YYYY-MM-DD')}"></td>
+        <td>
+            <a th:href="@{http://localhost:8081/student/deleteById/{nam}(nam=${student.id})}">删除</a>
+            <a th:href="@{http://localhost:8081/student/findById/{nam}(nam=${student.id})}">更新</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
